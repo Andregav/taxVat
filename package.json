@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "githubpage": "ng build --outputPath=docs --base-href=https://andregav.github.io/taxVat/"
   },
   "private": true,
   "dependencies": {
