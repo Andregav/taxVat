@@ -1,0 +1,39 @@
+<main class="calculator">
+  <section class="calculator__content">
+    <h1 class="calculator__title">Start your free <br> tax return today!</h1>
+    <p class="calculator__text">Taxes Free wants to help you and your family <br> build assets and be financially stable.</p>
+    <div class="calculator__counting">
+      <form class="example-form" [formGroup]="form">
+        <div class="counting__country">
+          <h4 class="counting__title">Country</h4>
+          <p class="counting__value">Austria</p>
+        </div>
+        <div class="counting__rates">
+          <h4 class="counting__title">VAT rate</h4>
+          <div class="counting__value">
+            <mat-radio-group aria-labelledby="example-radio-group-label" class="radio-group">
+              <mat-radio-button class="primary radio-group__button" *ngFor="let percent of percents; let last = last;" [value]="percent.value" (change)="selectRate($event)" [checked]="last">
+                {{percent.label}}
+              </mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </div>
+        <div class="counting__inputs">
+          <div class="inputs__item" *ngFor="let item of items; let i = index">
+            <mat-radio-button class="item__radio-button" [value]="i" [checked]="(i === 0)" (change)="selectValue(item.label.toUpperCase())">{{item.title}}</mat-radio-button>
+            <mat-form-field class="item__input-wrap" appearance="fill">
+              <mat-label>{{item.label}}</mat-label>
+              <input matInput placeholder="0.00" class="item__input" [id]='item.label.toUpperCase()' (input)="calcValue($event)" (keypress)="keyPressNumbersWithDecimal($event)" [attr.data-label]="item.label.toUpperCase()" [formControlName]="item.label.toUpperCase()">
+              <mat-error *ngIf="form.controls[item.label.toUpperCase()].hasError('min') && !form.controls[item.label.toUpperCase()].hasError('required')">
+                Please enter an amount greater than 0
+              </mat-error>
+              <mat-error *ngIf="form.controls[item.label.toUpperCase()].hasError('required')">
+                An amount is required
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>

@@ -1,0 +1,138 @@
+$font-family: Roboto;
+$mainColor: #1b334d;
+$secondColor: #1c5393;
+$lineColor: #dda01c;
+
+.calculator {
+  background-image: url('/assets/img/main/mainBg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &__content {
+    width: 100%;
+    padding-right: 60px;
+    padding-left: 60px;
+
+    @media only screen and (min-width: 1200px) {
+      width: 1200px;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+  }
+
+  &__title {
+    padding-top: 120px;
+    font-family: $font-family;
+    font-weight: 600;
+    font-size: 48px;
+    text-transform: capitalize;
+    line-height: 1.2;
+    color: $mainColor;
+
+    @media only screen and (min-width: 1200px) {
+      padding-top: 100px;
+      font-size: 68px;
+    }
+  }
+
+  &__text {
+    padding-top: 60px;
+    font-family: $font-family;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.2;
+    color: $mainColor;
+    margin-bottom: 200px;
+  }
+
+  %block {
+    display: flex;
+    align-items: baseline;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+  }
+
+  &__counting {
+    background-color: rgba($secondColor, 0.9);
+    padding: 40px 40px 10px 40px;
+    width: 75%;
+    color: #fff;
+    margin-bottom: 50px;
+
+    .counting {
+
+      &__title {
+        width: 25%;
+      }
+
+      &__value {
+        width: 75%;
+      }
+
+      &__country {
+        @extend %block;
+        border-bottom: 1px dashed $lineColor;
+      }
+
+      &__rates {
+        @extend %block;
+        border-bottom: 1px dashed $lineColor;
+
+        .radio-group {
+          display: flex;
+          flex-direction: column;
+          margin: 15px 0;
+          align-items: flex-start;
+
+          &__button {
+            margin-bottom: 10px;
+          }
+        }
+      }
+
+      &__inputs {
+        @extend %block;
+
+        .inputs {
+          &__item {
+            width: 33%;
+
+            .item {
+              &__radio-button {
+                margin-bottom: 7px;
+              }
+
+              &__input-wrap {
+                input {
+                  color: #000;
+                }
+              }
+            }
+
+            ::ng-deep.mat-form-field-disabled {
+              .mat-form-field-flex {
+                background-color: rgba(255, 255, 255, 0.15);
+              }
+
+              .mat-form-field-underline {
+                background-image: linear-gradient(to right, rgba(0, 0, 0, 1) 0, rgba(0, 0, 0, 0.42) 33%, #dda01c 0) !important;
+                background-size: 1px 100% !important;
+                background-repeat: repeat-x !important;
+                height: 1px;
+              }
+            }
+
+            ::ng-deep.mat-form-field-flex {
+              background-color: rgba(255, 255, 255, 0.85);
+            }
+
+            ::ng-deep.mat-error {
+              color: #E69A8DFF;
+            }
+          }
+        }
+      }
+    }
+  }
+}
