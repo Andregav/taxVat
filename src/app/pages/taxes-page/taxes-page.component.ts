@@ -9,8 +9,6 @@ import {ErrorStateMatcher} from '@angular/material/core';
   styleUrls: ['./taxes-page.component.scss']
 })
 export class TaxesPageComponent implements OnInit {
-
-	public bg = '/assets/img/main/mainBg.jpg';
 	
 	public percents: Percents[] = [
 		{
